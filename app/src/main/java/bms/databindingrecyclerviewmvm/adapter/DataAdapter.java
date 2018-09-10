@@ -1,6 +1,7 @@
 package bms.databindingrecyclerviewmvm.adapter;
 
 import android.databinding.DataBindingUtil;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -22,6 +23,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
     this.data = new ArrayList<>();
   }
 
+  @NonNull
   @Override
   public DataViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
     View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_data,
@@ -41,13 +43,13 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
   }
 
   @Override
-  public void onViewAttachedToWindow(DataViewHolder holder) {
+  public void onViewAttachedToWindow(@NonNull DataViewHolder holder) {
     super.onViewAttachedToWindow(holder);
     holder.bind();
   }
 
   @Override
-  public void onViewDetachedFromWindow(DataViewHolder holder) {
+  public void onViewDetachedFromWindow(@NonNull DataViewHolder holder) {
     super.onViewDetachedFromWindow(holder);
     holder.unbind();
   }
